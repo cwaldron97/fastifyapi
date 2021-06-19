@@ -1,9 +1,22 @@
 const fastifyPlugin = require('fastify-plugin')
+const { Client } = require('pg')
+require('dotenv').config()
+const client = new Client({
+    user: 'postgres',
+    password:process.env.PASSWORD,
+    host: 'localhost',
+    database: process.env.DATABASE
+})
 
-async function dbConnector (fastify, options) {
-    fastify.register(require('fastify-postgres'), {
-        connectionString: 'postgres://postgres@localhost/postgres'
-    })
+async function dbconnector (fastify, options) {
+    try {
+        await client.connect()
+        console.log("db connected successfully")
+        fastify.decorate('db', {client})
+    } catch(err){
+        console.error(err)
+    }
+   
 }
 
-module.exports = fastifyPlugin(dbConnector)
+module.exports = fastifyPlugin(dbconnector)

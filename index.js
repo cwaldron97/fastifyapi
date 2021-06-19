@@ -1,9 +1,8 @@
 const fastify = require('fastify')()
+const dbconnector = require('./postgres-db-connector')
 fastify.register(require('./routes/catch'))
 fastify.register(require('./routes/pokedex'))
-fastify.register(require('fastify-postgres'), {
-    connectionString: 'postgres://postgres@localhost/postgres'
-  })
+fastify.register(dbconnector)
 
 
 fastify.listen(5000, function (err, address) {

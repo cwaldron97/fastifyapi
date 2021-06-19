@@ -1,23 +1,18 @@
 const fastify = require('fastify')
-const pg = require('fastify-postgres')
-
+const dbconnector = require('./postgres-db-connector')
 
 async function routes(fastify, options) {
-    fastify.get('/pokedex/:id', async (request, reply) => {
-        fastify.pg.connect(onConnect)
-
-        function onConnect(err, client, release) {
-            if (err) return reply.send(err)
-
-            client.query(
-                'SELECT ID, pokemonname, FROM pokemon WHERE id=$1', [req.params.id],
-                function onResult (err, result) {
-                    release()
-                    reply.send(err || result)
-                }
-            )
+    const client = fastify.db.client
+    fastify.get('/pokedex/', {schema: allPokemon}, async function (request, reply) {
+        try {
+            const {rows} = await client.query('SELECT * FROM pokemon')
+            console.log(rows)
+            reply.send(rows)
+        } catch(err) {
+            throw new Error(err)
         }
     })
+        
 }   
 
 module.exports = routes
