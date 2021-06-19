@@ -1,4 +1,3 @@
-const fastify = require('fastify')
 
 
 async function routes(fastify, options) {

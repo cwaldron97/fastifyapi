@@ -13,3 +13,5 @@ const allPokemon = {
         }
     }
 }
+
+module.exports = allPokemon

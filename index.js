@@ -1,8 +1,8 @@
 const fastify = require('fastify')()
 const dbconnector = require('./db')
+fastify.register(dbconnector)
 fastify.register(require('./routes/catch'))
 fastify.register(require('./routes/pokedex'))
-fastify.register(dbconnector)
 
 
 fastify.listen(5000, function (err, address) {
