@@ -1,5 +1,5 @@
 const fastify = require('fastify')()
-const dbconnector = require('./postgres-db-connector')
+const dbconnector = require('./db')
 fastify.register(require('./routes/catch'))
 fastify.register(require('./routes/pokedex'))
 fastify.register(dbconnector)

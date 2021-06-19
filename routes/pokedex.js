@@ -1,9 +1,10 @@
-const fastify = require('fastify')
-const dbconnector = require('./postgres-db-connector')
+const dbconnector = require('../db')
+const allPokemon = require('../schemas')
+
 
 async function routes(fastify, options) {
     const client = fastify.db.client
-    fastify.get('/pokedex/', {schema: allPokemon}, async function (request, reply) {
+    fastify.get('/pokedex', {schema: allPokemon}, async function (request, reply) {
         try {
             const {rows} = await client.query('SELECT * FROM pokemon')
             console.log(rows)
