@@ -1,21 +1,9 @@
 const fastify = require('fastify')
 
-const opts = {
-    schema: {
-      response: {
-        200: {
-          type: 'object',
-          properties: {
-            hello: { type: 'string' }
-          }
-        }
-      }
-    }
-}
 
-async function routes(fastify, opts) {
-    fastify.get('/', (request, reply) => {
-        reply.send({ hello: 'world' })
+async function routes(fastify, options) {
+    fastify.get('/catch', async (request, reply) => {
+        return{ hello: 'world' }
         
     })
 }   

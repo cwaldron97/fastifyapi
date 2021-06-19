@@ -11,6 +11,9 @@
   "license": "ISC",
   "dependencies": {
     "fastify": "^3.18.0",
-    "nodemon": "^2.0.7"
+    "fastify-plugin": "^3.0.0",
+    "fastify-postgres": "^3.5.0",
+    "nodemon": "^2.0.7",
+    "pg": "^8.6.0"
   }
 }
