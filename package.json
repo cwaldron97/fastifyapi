@@ -4,7 +4,8 @@
   "description": "A project to learn fastify to create an api handling backend.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no tests specified\" && exit 1",
+    "start": "nodemon index.js"
   },
   "author": "Colin",
   "license": "ISC",
