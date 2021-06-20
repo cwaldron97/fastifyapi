@@ -1,7 +1,8 @@
+const catchPokemon = require('../schemas')
 
 async function routes(fastify, options) {
-    fastify.post('/catch', async (request, reply) => {
-        
+    fastify.post('/catch', {schema: catchPokemon}, async (request, reply) => {
+        const {pokemonName} = request.body
         
     })
 }   
