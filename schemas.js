@@ -1,17 +1,23 @@
 const allPokemon = {
     response: {
         200: {
-            type: 'array',
-            items: {
-                type: 'object',
-                required: ['id', 'name'],
-                properties: {
-                    id: {type: 'integer'},
-                    name: {type: 'string'},
-                }
+            type: 'object',
+            properties: {
+                rows: {
+                  type: 'array',
+                  items: { 
+                    type: 'object', 
+                    properties: {
+                      id: { type: 'integer' },
+                      name: { type: 'string' }
+                    }
+                 }
+               },
+               totalnumberofpokemoncaught: { type: 'integer' }
+             }
             }
         }
-    }
 }
+
 
 module.exports = allPokemon

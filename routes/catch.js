@@ -1,8 +1,7 @@
 
-
 async function routes(fastify, options) {
-    fastify.get('/catch', async (request, reply) => {
-        return{ hello: 'world' }
+    fastify.post('/catch', async (request, reply) => {
+        
         
     })
 }   
