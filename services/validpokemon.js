@@ -1,10 +1,13 @@
 const { catchRepository } = require("../repositories/catch");
 
-export function validPokemon(pokemonName) {
+function validPokemon(pokemonName) {
+    const bool = false
     if (catchRepository.catchRepository(pokemonName) === 'undefined') {
-        return false
+        bool = false
     }
     else {
-        return true
+        bool = true
     }
+    return bool
 }
+

@@ -9,6 +9,6 @@ function mapResponse(response) {
     };
 }
 
-export function catchService(pokemonName) {
+function catchService(pokemonName) {
     return mapResponse(catchRepository.catchRepository(pokemonName))
 }
